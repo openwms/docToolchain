@@ -452,6 +452,12 @@ def parseBody =  { body, anchors, pageAnchors ->
             .wrap('<ac:structured-macro ac:name="info"></ac:structured-macro>')
             .before('<ac:parameter ac:name="title">arc42</ac:parameter>')
             .wrap('<ac:rich-text-body><p></p></ac:rich-text-body>')
+
+    body.select('div.owmsExpand').select('.content')
+            .wrap('<ac:structured-macro ac:name="expand"></ac:structured-macro>')
+            .wrap('<ac:rich-text-body><p></p></ac:rich-text-body>')
+    body.select('div.owmsExpand').unwrap()
+
     body.select('div.arc42help').unwrap()
     body.select('div.title').wrap("<strong></strong>").before("<br />").wrap("<div></div>")
     body.select('div.listingblock').wrap("<p></p>").unwrap()
@@ -466,7 +472,7 @@ def parseBody =  { body, anchors, pageAnchors ->
             //println attribute.dump()
         }
         def src = img.attr('src')
-        def imgWidth = img.attr('width')?:500
+        def imgWidth = img.attr('width')?:"auto"//500
         def imgAlign = img.attr('align')?:"center"
         println "    image: "+src
 

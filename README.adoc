@@ -5,6 +5,10 @@ image::image.png[width=30%,link=https://ahus1.de/cdc]
 
 == docToolchain
 
+=== Customizations
+
+ * Added a task to read issues from Github and export in different files, sorted by issue state
+
 [IMPORTANT]
 ====
 if you've used docToolchain in the past, please be aware that the master branch is undergoing some changes.
